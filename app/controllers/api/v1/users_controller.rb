@@ -16,7 +16,8 @@ module Api
                     user = User.new(user_params)
                     if user.save
                         # generate token for the user
-                        token = encode_token({user_id: user.id, name: user.name, email: user.email, alamat: user.alamat, no_ktp: user.no_ktp, jenis_kelamin: user.jenis_kelamin, tanggal_lahir: user.tanggal_lahir})
+                        token = encode_token({user_id: user.id, fullname: user.fullname, email: user.email, address: user.address, IdCardNumber: user.IdCardNumber, BirthDate: user.BirthDate, gender: user.gender})
+                       # UserMailer.welcome_email(@user).deliver_now
                         render json: {
                             status: 'success',
                             message: 'User created',
@@ -42,7 +43,7 @@ module Api
                 # check if the user exists and password is authenticate
                 if user&.authenticate(params[:password])
                     # generate user token
-                    token = encode_token({user_id: user.id, name: user.name, email: user.email})
+                    token = encode_token({user_id: user.id, fullname: user.fullname, email: user.email})
                     render json: {
                         status: 'success',
                         message: 'Login successful',
@@ -60,7 +61,7 @@ module Api
             
             private
             def user_params
-                params.permit(:name, :email, :password, :alamat, :no_ktp, :tanggal_lahir, :jenis_kelamin)
+                params.permit(:fullname, :email, :password, :address, :IdCardNumber, :BirthDate, :gender)
             end
             
             # token hash secret

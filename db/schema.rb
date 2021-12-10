@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 2021_12_08_071051) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "fullname"
     t.string "email"
     t.string "password_digest"
-    t.string "alamat"
-    t.string "no_ktp"
-    t.string "tanggal_lahir"
-    t.string "jenis_kelamin"
+    t.string "address"
+    t.string "IdCardNumber"
+    t.string "BirthDate"
+    t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
