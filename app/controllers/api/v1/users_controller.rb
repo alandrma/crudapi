@@ -36,6 +36,17 @@ module Api
                 end
             end
 
+            def show
+                user = User.find_by_email(params[:email])
+  
+                render :json => user, status: :ok
+            
+                rescue ActiveRecord::RecordNotFound => e
+                    render json: {
+                        message: e
+                    }, status: :not_found
+            end
+
             # login a user
             def login
                 # find the user in the DB using their email
