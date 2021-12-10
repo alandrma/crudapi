@@ -89,6 +89,6 @@ test:
 #
 production:
   <<: *default
-  database: loginapi_production
-  username: loginapi
-#  password: <%= ENV['LOGINAPI_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  # username: loginapi
+  # password: <%= ENV['LOGINAPI_DATABASE_PASSWORD'] %>
