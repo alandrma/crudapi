@@ -47,6 +47,18 @@ module Api
                     }, status: :not_found
             end
 
+            def update
+                # find the user in the DB using their email
+                user = User.find_by_email(params[:email])
+                user.update(update_params)
+                render :json => user, status: :ok
+
+                rescue ActiveRecord::RecordNotFound => e
+                    render json: {
+                        message: e
+                    }, status: :not_found
+            end
+
             # login a user
             def login
                 # find the user in the DB using their email
@@ -72,6 +84,10 @@ module Api
             
             private
             def user_params
+                params.permit(:fullname, :email, :password, :address, :IdCardNumber, :BirthDate, :gender)
+            end
+
+            def update_params
                 params.permit(:fullname, :email, :password, :address, :IdCardNumber, :BirthDate, :gender)
             end
             
