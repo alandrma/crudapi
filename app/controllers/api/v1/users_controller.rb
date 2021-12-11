@@ -15,9 +15,9 @@ module Api
                     # create a new user object and save it to the database
                     user = User.new(user_params)
                     if user.save
+#                        UserMailer.welcome_email({user: user.email}).deliver_now
                         # generate token for the user
                         token = encode_token({user_id: user.id, fullname: user.fullname, email: user.email, address: user.address, IdCardNumber: user.IdCardNumber, BirthDate: user.BirthDate, gender: user.gender})
-                       # UserMailer.welcome_email(@user).deliver_now
                         render json: {
                             status: 'success',
                             message: 'User created',

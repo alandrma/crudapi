@@ -5,8 +5,11 @@ Rails.application.routes.draw do
       post '/login', to: "users#login"
       put '/update', to: "users#update"
       get '/show', to: "users#show"
-      resources :artikels
-      resources :lists
+      resources :articles
+      get 'articles/search', action: :search, controller: 'articles'
+      resources :doctors
+      get 'doctors/search', action: :search, controller: 'doctors'
+
     end
   end
 end
