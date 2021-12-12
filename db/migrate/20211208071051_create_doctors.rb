@@ -5,6 +5,7 @@ class CreateDoctors < ActiveRecord::Migration[6.1]
       t.string :PracticeLocation
       t.string :specialist
       t.string :profile
+      t.string :avatar_url
 
       t.timestamps
     end

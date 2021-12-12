@@ -8,8 +8,7 @@ Rails.application.routes.draw do
       resources :articles
       get 'articles/search', action: :search, controller: 'articles'
       resources :doctors
-      get 'doctors/search', to: "doctors#search"
-      # get 'doctors/search', action: :search, controller: 'doctors'
+      get 'doctors/search', action: :search, controller: 'doctors'
 
     end
   end
