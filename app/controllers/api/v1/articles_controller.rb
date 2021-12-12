@@ -22,14 +22,14 @@ module Api
                     if article.save
                         render json: {
                             status: 'Success',
-                            message: 'article saved',
+                            message: 'Article Saved',
                             data: article,
                             },
                             status: :created
                     else 
                         render json: {
                             status: 'Error',
-                            message: 'article not saved',
+                            message: 'Article Not Saved',
                             data: article.errors,
                             },
                             status: :unprocessable_entity
@@ -41,7 +41,7 @@ module Api
                 article = Article.find(params[:id])
                 render json: {
                     status: 'Success',
-                    message: 'Loaded article',
+                    message: 'Loaded Article',
                     data: article,
                     },
                     status: :ok
@@ -57,14 +57,14 @@ module Api
                 if article.update(article_params)
                     render json: {
                         status: 'Success',
-                        message: 'article updated',
+                        message: 'Article Updated',
                         data: article,
                         },
                         status: :ok
                 else 
                     render json: {
                         status: 'Success',
-                        message: 'article not updated',
+                        message: 'Article Not Updated',
                         data: article,
                         },
                         status: :unprocessable_entity
@@ -75,8 +75,8 @@ module Api
             def search
                 article = Article.where("title LIKE ? ", "%#{params[:title]}%")
                 render json: {
-                    status: 'Success',
-                    message: 'Hasil',
+                    status: 'Searching Success',
+                    message: 'Results (if empty = not found)',
                     data: article,
                     },
                     status: :ok
