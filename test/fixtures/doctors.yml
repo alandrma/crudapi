@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+    fullname: MyString
+    PracticeLocation: MyString
+    specialist: MyString
+    profile: MyString
+    avatar: 
+
+two:
+    fullname: MyString
+    PracticeLocation: MyString
+    specialist: MyString
+    profile: MyString
+    avatar: 
+  
