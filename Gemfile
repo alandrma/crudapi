@@ -24,6 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 gem 'jwt'
 gem 'kaminari'
+gem "aws-sdk-s3", require: false
+
 
 #gem 'pg_search', '~> 2.3', '>= 2.3.5'
 
