@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 gem 'jwt'
+gem 'kaminari'
+
 #gem 'pg_search', '~> 2.3', '>= 2.3.5'
 
 # Use Active Storage variant
