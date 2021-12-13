@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: alandrma
+  api_key: '556236233779868'
+  api_secret: ZSkGJpGLiJkQUuoQMv4a_D6zKYU
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: alandrma
+  api_key: '556236233779868'
+  api_secret: ZSkGJpGLiJkQUuoQMv4a_D6zKYU
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: alandrma
+  api_key: '556236233779868'
+  api_secret: ZSkGJpGLiJkQUuoQMv4a_D6zKYU
+  enhance_image_tag: true
+  static_file_support: false
