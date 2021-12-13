@@ -7,12 +7,16 @@ module Api
             
             # This method returns all the Posts in the database
             def index 
-                doctor = Doctor.order('id ASC');
+                doctor = Doctor.order('id ASC').page(params[:page]).per(params[:per_page]);
                 render json: {
                     status: 'Success',
                     message: 'All Lists',
                     data: doctor,
-                    },
+                    meta: {
+                        count: doctor.count,
+                        total: doctor.total_pages
+                    }
+                },
                     status: :ok
             end
 
