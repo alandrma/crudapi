@@ -37,14 +37,22 @@ module Api
             end
 
             def show
-                user = User.find_by_email(params[:email])
+                if user = User.find_by_email(params[:email])
+                render json: {
+                    status: 'success',
+                    message: 'User Found',
+                    data: user,
+                    
+                },
+                status: :ok
   
-                render :json => user, status: :ok
-            
-                rescue ActiveRecord::RecordNotFound => e
+                else 
                     render json: {
-                        message: e
-                    }, status: :not_found
+                        status: 'error',
+                        message: 'User doesn`t exist',
+                    },
+                    status: :not_found
+                end
             end
 
             def update
@@ -66,7 +74,7 @@ module Api
                 # check if the user exists and password is authenticate
                 if user&.authenticate(params[:password])
                     # generate user token
-                    token = encode_token({user_id: user.id, fullname: user.fullname, email: user.email})
+                    token = encode_token({user_id: user.id, email: user.email})
                     render json: {
                         status: 'success',
                         message: 'Login successful',
